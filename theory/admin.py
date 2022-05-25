@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from theory.models import Post
+
+class PostAdmin(admin.ModelAdmin):
+    list_display= ('title', 'status', 'datetime_modified')
+
+admin.site.register(Post, PostAdmin)
