@@ -1,9 +1,41 @@
-{% for post in post_list %}
-    {{ post.title }}
-    <br>
-    {{ post.text }}
-    <br>
-    {{ post.datetime_created }}
-    <br>
-    <p>---------</p>
-{% endfor %}
+{% extends '_base.html' %}
+
+{% block page_title %}
+    Facts.com
+{% endblock page_title %}
+
+{% block content %}
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-9">
+
+                {% for post in post_list %}
+                    <div class="card shadow-sm my-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <h6 class="card-subtitle md-2 text-muted small py-2">By: {{ post.author }}</h6>
+                            <p class="card-text py-3">
+                                {{ post.text }}
+                            </p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">بیشتر..</a>
+
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+            <div class="col-3">
+
+                <div class="card my-4">
+                    <h5 class="card-header" style="background-color: rgb(39, 39, 39); color: ivory;">درباره ما</h5>
+                    <div class="card-body">
+                        <p class="card-text">تیم امیر از سال 97 روی تحقیق و پژوهش زوم کرد.</p>
+ 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
