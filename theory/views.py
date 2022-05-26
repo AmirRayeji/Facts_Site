@@ -1,4 +1,5 @@
 from django.views import generic
+from django.urls import reverse_lazy
 
 from theory.models import Post
 from theory.forms import PostForm
@@ -26,3 +27,8 @@ class PostUpdateView(generic.UpdateView):
     model = Post
     form_class = PostForm
     template_name = 'theory/post_create.html'
+
+class PostDeleteView(generic.DeleteView):
+    model = Post
+    template_name = 'theory/post_delete.html'
+    success_url = reverse_lazy('post_list')
