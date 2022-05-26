@@ -21,3 +21,8 @@ class PostDetailView(generic.DetailView):
 class PostCreateView(generic.CreateView):
     form_class = PostForm
     template_name = 'theory/post_create.html'
+
+class PostUpdateView(generic.UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'theory/post_create.html'
